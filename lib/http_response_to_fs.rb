@@ -1,5 +1,6 @@
 require "http_response_to_fs/version"
 require 'open-uri'
+require 'kconv'
 
 module HttpResponseTofs
   class << self
@@ -36,7 +37,7 @@ module HttpResponseTofs
 
     def set(url)
       file = URI.parse(url).open
-      File.write(to_local_path(url), file.read)
+      File.write(to_local_path(url), file.read.toutf8)
       get(url)
     ensure
       file.close unless file.closed?
