@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "http_cache_to_fs"
+require "http_response_to_fs"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

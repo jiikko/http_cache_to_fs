@@ -1,7 +1,7 @@
-require "http_cache_to_fs/version"
+require "http_response_to_fs/version"
 require 'open-uri'
 
-module HttpCacheToFs
+module HttpResponseTofs
   class << self
     attr_accessor :cache_dir, :cache_version
 

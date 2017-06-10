@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'http_cache_to_fs/version'
+require 'http_response_to_fs/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "http_cache_to_fs"
-  spec.version       = HttpCacheToFs::VERSION
+  spec.name          = "http_response_to_fs"
+  spec.version       = HttpResponseTofs::VERSION
   spec.authors       = ["jiikko"]
   spec.email         = ["n905i.1214@gmail.com"]
 
   spec.summary       = %q{This gem writes the http response to the file system.}
   spec.description   = spec.summary
-  spec.homepage      = "https://github.com/jiikko/http_cache_to_fs"
+  spec.homepage      = "https://github.com/jiikko/http_response_to_fs"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})

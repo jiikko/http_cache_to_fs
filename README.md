@@ -1,4 +1,4 @@
-# HttpCacheToFs
+# HttpResponseTofs
 * HTTPレスポンスをファイルに書き出します。
 * I'm respect to https://github.com/gurgeous/chuckle .
 
@@ -7,7 +7,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'http_cache_to_fs'
+gem 'http_response_to_fs'
 ```
 
 And then execute:
@@ -16,15 +16,15 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install http_cache_to_fs
+    $ gem install http_response_to_fs
 
 ## Usage
 ```ruby
-2.4.1 :001 > HttpCacheToFs.cache_dir = './lib/http_cache/'
+2.4.1 :001 > HttpResponseTofs.cache_dir = './lib/http_cache/'
  => "./lib/http_cache/"
-2.4.1 :002 > HttpCacheToFs.open('http://google.net')
+2.4.1 :002 > HttpResponseTofs.open('http://google.net')
  => #<File:./lib/http_cache/http:,,google.net>
-2.4.1 :003 > HttpCacheToFs.open('http://google.net')
+2.4.1 :003 > HttpResponseTofs.open('http://google.net')
  => #<File:./lib/http_cache/http:,,google.net> # from cache
 2.4.1 :004 >
 ```
