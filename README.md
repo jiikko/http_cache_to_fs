@@ -1,5 +1,6 @@
 # HttpCacheToFs
-HTTPレスポンスをファイルに書き出します。
+* HTTPレスポンスをファイルに書き出します。
+* I'm respect to https://github.com/gurgeous/chuckle .
 
 ## Installation
 
@@ -19,6 +20,11 @@ Or install it yourself as:
 
 ## Usage
 ```ruby
+2.4.1 :001 > HttpCacheToFs.cache_dir = './lib/http_cache/'
+ => "./lib/http_cache/"
 2.4.1 :002 > HttpCacheToFs.open('http://google.net')
+ => #<File:./lib/http_cache/http:,,google.net>
 2.4.1 :003 > HttpCacheToFs.open('http://google.net')
+ => #<File:./lib/http_cache/http:,,google.net> # from cache
+2.4.1 :004 >
 ```

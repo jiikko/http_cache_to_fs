@@ -10,20 +10,12 @@ module HttpCacheToFs
     end
 
     def open(url, force_write: false)
-      self.cache_version = '' if cache_version.nil?
-      raise('Set cache_dir') if cache_dir.nil?
-
+      error_if_cache_dir_nil!
       if force_write
         set(url) && get(url)
         return
       end
-      result = get(url)
-      if result
-        get(url)
-      else
-        set(url)
-        get(url)
-      end
+      get(url) || set(url)
     end
 
     def to_local_path(url)
@@ -32,7 +24,8 @@ module HttpCacheToFs
     end
 
     def cache_dir_with_version
-      File.join(cache_dir, cache_version)
+      error_if_cache_dir_nil!
+      File.join(cache_dir, (cache_version || ''))
     end
 
     private
@@ -44,8 +37,13 @@ module HttpCacheToFs
     def set(url)
       file = URI.parse(url).open
       File.write(to_local_path(url), file.read)
+      get(url)
+    rescue
+      file.close unless file.closed?
+    end
+
+    def error_if_cache_dir_nil!
+      raise('Set cache_dir') if cache_dir.nil?
     end
   end
 end
-
-HttpCacheToFs.cache_dir = './lib/http_cache'
