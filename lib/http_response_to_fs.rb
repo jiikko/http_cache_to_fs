@@ -38,7 +38,7 @@ module HttpResponseTofs
       file = URI.parse(url).open
       File.write(to_local_path(url), file.read)
       get(url)
-    rescue
+    ensure
       file.close unless file.closed?
     end
 
