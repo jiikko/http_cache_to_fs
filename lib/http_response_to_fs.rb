@@ -13,7 +13,7 @@ module HttpResponseTofs
     def open(url, force_write: false)
       error_if_cache_dir_nil!
       if force_write
-        set(url) && get(url)
+        set(url)
         return
       end
       get(url) || set(url)
